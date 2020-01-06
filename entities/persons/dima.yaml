@@ -1,0 +1,6 @@
+---
+name: Dima
+id: dima
+user_id: !secret user_id_dima
+#device_trackers:
+#  - device_tracker.iphone_frenck
