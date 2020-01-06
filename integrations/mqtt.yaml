@@ -9,12 +9,12 @@ mqtt:
   discovery_prefix: homeassistant
   protocol: 3.1
   birth_message:
-    topic: 'clients/hass'
+    topic: 'clients/hass1'
     payload: '1'
     qos: 1
     retain: true
   will_message:
-    topic: 'clients/hass'
+    topic: 'clients/hass1'
     payload: '0'
     qos: 1
     retain: true
