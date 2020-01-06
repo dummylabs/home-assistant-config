@@ -11,6 +11,7 @@ __pycache__
 .cloud
 .storage
 deps
+www/avatars
 
 # Specific file ignores
 .config_entries.json
