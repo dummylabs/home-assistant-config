@@ -30,6 +30,7 @@ pyozw.sqlite
 secrets.yaml
 zwcfg_*
 zwscene.xml
+tion_auth
 
 # ESPHome ignores
 esphome/secrets.yaml
