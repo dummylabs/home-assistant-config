@@ -1,0 +1,6 @@
+xiaomi_aqara:
+  # Number of times that Home Assistant should try to reconnect to the gateway.
+  discovery_retry: 5
+  gateways:
+    - mac: !secret aqara_mac
+      key: !secret aqara_key
