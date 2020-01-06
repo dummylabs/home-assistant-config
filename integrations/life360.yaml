@@ -1,0 +1,7 @@
+life360:
+  accounts:
+    username: !secret life360_user
+    password: !secret life360_password
+  prefix: life360
+  driving_speed: 10
+  show_as_state: [driving, moving]

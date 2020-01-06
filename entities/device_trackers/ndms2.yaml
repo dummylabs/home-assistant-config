@@ -1,0 +1,4 @@
+platform: keenetic_ndms2
+host: !secret ndms_host
+username: !secret ndms_user
+password: !secret ndms_password
