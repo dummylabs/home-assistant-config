@@ -1,0 +1,20 @@
+mqtt:
+  broker: !secret mqtt_host
+  port: !secret mqtt_port
+  client_id: !secret mqtt_client_id
+  keepalive: 60
+  username: !secret mqtt_user
+  password: !secret mqtt_password
+  discovery: true
+  discovery_prefix: homeassistant
+  protocol: 3.1
+  birth_message:
+    topic: 'clients/hass'
+    payload: '1'
+    qos: 1
+    retain: true
+  will_message:
+    topic: 'clients/hass'
+    payload: '0'
+    qos: 1
+    retain: true
