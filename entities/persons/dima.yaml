@@ -2,5 +2,6 @@
 name: Dima
 id: dima
 user_id: !secret user_id_dima
-#device_trackers:
-#  - device_tracker.iphone_frenck
+device_trackers:
+  - device_tracker.huawei_p30_pro
+  - device_tracker.life360_dmitry_di
