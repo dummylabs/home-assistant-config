@@ -1,0 +1,2 @@
+sensor.daily_energy_usage:
+  friendly_name: Потребление энергии (за день)

@@ -1,0 +1,2 @@
+sensor.energy_usage:
+  friendly_name: Потребление энергии (сейчас)
