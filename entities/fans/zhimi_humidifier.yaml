@@ -1,0 +1,4 @@
+platform: xiaomi_miio
+host: 192.168.1.67
+token: !secret zhimi_humidifier_token
+name: zhimi.humidifier.ca1
