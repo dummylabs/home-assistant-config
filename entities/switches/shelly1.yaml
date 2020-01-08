@@ -1,0 +1,11 @@
+platform: mqtt
+name: "shelly-1"
+state_topic: "stat/shelly-1/POWER"
+command_topic: "cmnd/shelly-1/POWER"
+availability_topic: "tele/shelly-1/LWT"
+qos: 1
+payload_on: "ON"
+payload_off: "OFF"
+payload_available: "Online"
+payload_not_available: "Offline"
+retain: false
