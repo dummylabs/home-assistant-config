@@ -1,0 +1,12 @@
+yaweather:
+  module: yandex_weather
+  class: YandexWeather
+  location: !secret appdaemon_yandex_weather_location
+  dependencies:
+    - errors
+
+sayweather:
+  module: say_weather
+  class: SayWeather
+  dependencies:
+    - tts

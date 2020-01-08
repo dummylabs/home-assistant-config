@@ -31,7 +31,8 @@ secrets.yaml
 zwcfg_*
 zwscene.xml
 tion_auth
-
+appdaemon/appdaemon.yaml
+appdaemon/compiled
 # ESPHome ignores
 esphome/secrets.yaml
 esphome/**/

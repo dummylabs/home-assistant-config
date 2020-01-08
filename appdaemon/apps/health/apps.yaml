@@ -1,0 +1,8 @@
+
+
+health:
+  module: health
+  class: HealthMonitor
+  monitored_entities: !secret appdaemon_monitored_entities
+  dependencies:
+    - messages

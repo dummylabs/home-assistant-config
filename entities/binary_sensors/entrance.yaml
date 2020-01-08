@@ -1,0 +1,8 @@
+platform: mqtt
+state_topic: "cmnd/w1-fusebox-switch/POWER"
+availability_topic: "tele/w1-fusebox/LWT"
+payload_available: "Online"
+payload_not_available: "Offline"
+name: "Entrance"
+device_class: opening
+unique_id: "entrance"

@@ -1,0 +1,3 @@
+mode_do_not_disturb:
+  name: Do not disturb mode
+  icon: mdi:volume-mute

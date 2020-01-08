@@ -1,0 +1,15 @@
+global_modules:
+  - globals
+
+messages:
+  module: messages
+  class: Messenger
+  chat_id: !secret appdaemon_messenger_chatid
+
+errors:
+  module: errors
+  class: ErrorCounter
+  shelf_path: "/config/appdaemon/apps/errors" 
+  treshold: 5
+  dependencies:
+    - messages

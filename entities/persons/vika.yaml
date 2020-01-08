@@ -3,4 +3,4 @@ name: Vika
 id: vika
 user_id: !secret user_id_vika
 device_trackers:
-  - device_tracker.iphone_vika
+  - device_tracker.phone_vika

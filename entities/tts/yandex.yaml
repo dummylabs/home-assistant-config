@@ -1,0 +1,6 @@
+platform: yandextts
+api_key: !secret yandex_tts_api_key
+language: ru-RU
+voice: oksana
+cache: true
+cache_dir: /tmp/tts

@@ -1,0 +1,160 @@
+#################################################################
+## Global
+#################################################################
+global_modules:
+  - globals
+
+errors:
+  module: errors
+  class: ErrorCounter
+  shelf_path: "/config/appdaemon/apps/errors" 
+  treshold: 5
+  dependencies:
+    - messages
+
+  class: Messenger
+  chat_id: 115373860
+
+washing_machine:
+  module: washingmachine
+  class: WashingMachine
+  dependencies:
+    - messages
+
+hello_world:
+  module: hello
+  class: HelloWorld
+  dependencies:
+    - messages
+    - errors
+    - secrets
+    - announcer
+
+water_dog:
+  module: notify_water_outage
+  class: WaterDog
+  dependencies:
+    - errors
+
+#daily_log_report:
+#  module: daily_log_report
+#  class: DailyLogReport
+#  dependencies:
+#    - messages
+
+#todoist2:
+#  module: todoist2
+#  class: TodoistDigest
+#  dependencies:
+#    - errors
+#    - tts
+
+yaweather:
+  module: yandex_weather
+  class: YandexWeather
+  dependencies:
+    - errors
+
+sayweather:
+  module: say_weather
+  class: SayWeather
+  dependencies:
+    - tts
+
+#check_nut:
+#  module: check_nut
+#  class: CheckNut
+
+#################
+sonos_manager:
+  module: sonos
+  class: SonosManager
+
+sonos_kitchen:
+  module: sonos
+  class: SonosSpeaker
+  dependencies:
+    - sonos_manager
+  entity: media_player.kitchen
+
+tts:
+  module: tts
+  class: TTS
+  dependencies:
+    - sonos_manager
+
+dnd:
+  module: dnd
+  class: DND
+
+presence:
+  module: presence
+  class: NonBinaryPresence
+  dependencies:
+    - messages
+    - announcer
+
+telegram:
+  module: telegram
+  class: TelegramBot
+  meal_button: binary_sensor.switch_158d00016c22ad
+  meal_sensor: input_text.meal_time
+  dependencies:
+    - tts
+
+counter:
+  module: counter
+  class: Counter
+
+pill_reminder:
+  module: pill_reminder
+  class: PillReminder
+  dependencies:
+    - tts
+
+humidifier:
+  module: humidifier
+  class: Humidifier
+
+#telegram_status:
+#  module: telegram_status
+#  class: TelegramStatus
+
+coffee:
+  module: coffee
+  class: CoffeeMaker
+  dependencies:
+    - tts
+    - announcer
+
+health:
+  module: health
+  class: HealthMonitor
+  dependencies:
+    - messages
+
+huawei_battery:
+  module: huawei_battery
+  class: HuaweiBattery
+  dependencies:
+    - messages
+
+
+secrets:
+  module: secrets
+  class: Secrets
+#powermon:
+#  module: power_monitor
+#  class: PowerMonitor
+
+logwatch:
+  module: log_watch
+  class: LogWatch
+
+steba_watchdog:
+  module: steba_watchdog
+  class: StebaWatchdog
+  constrain_start_time: "22:00:00"
+  constrain_end_time: "01:00:00"
+  dependencies:
+    - tts

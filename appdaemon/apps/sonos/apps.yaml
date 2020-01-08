@@ -1,0 +1,19 @@
+#################
+sonos_manager:
+  module: sonos
+  class: SonosManager
+
+sonos_kitchen:
+  module: sonos
+  class: SonosSpeaker
+  dependencies:
+    - sonos_manager
+  entity: media_player.kitchen
+
+tts:
+  module: tts
+  class: TTS
+  service: tts/yandextts_say
+  opener_file_base: http://192.168.1.62:8123/local/media/
+  dependencies:
+    - sonos_manager

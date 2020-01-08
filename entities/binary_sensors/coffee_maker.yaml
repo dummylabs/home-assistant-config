@@ -1,0 +1,4 @@
+platform: mqtt
+name: "Coffee Maker"
+state_topic: "tele/coffee-maker/MARGINS"
+value_template: '{{ value_json["PowerHigh"] }}'

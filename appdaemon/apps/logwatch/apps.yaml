@@ -1,0 +1,4 @@
+logwatch:
+  module: log_watch
+  class: LogWatch
+  chat_id: !secret appdaemon_messenger_chatid
