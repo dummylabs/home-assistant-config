@@ -33,9 +33,11 @@ zwscene.xml
 tion_auth
 appdaemon/appdaemon.yaml
 appdaemon/compiled
+appdaemon/apps/errors
 # ESPHome ignores
 esphome/secrets.yaml
 esphome/**/
+
 
 # Ignore add-on files
 aircast.xml

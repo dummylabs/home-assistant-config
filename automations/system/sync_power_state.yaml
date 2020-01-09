@@ -1,0 +1,10 @@
+alias: sync_power_state
+trigger:
+- event: start
+  platform: homeassistant
+condition: []
+action:
+- data:
+    payload: ''
+    topic: cmnd/sonoffs/power
+  service: mqtt.publish
