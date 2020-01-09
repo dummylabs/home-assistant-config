@@ -25,6 +25,16 @@ cards:
           top: 12%
           left: 35%
           background-color: "rgba(0, 0, 0, 0.3)"
+      - type: state-label
+        entity: sensor.humidifier_water_level
+        style:
+          top: 12%
+          left: 39%
+          background-color: "rgba(0, 0, 0, 0.3)"
+          color: white
+          border-radius: 50%
+
+
 
       - type: state-label
         entity: sensor.magicair_temperature

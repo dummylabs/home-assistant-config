@@ -1,0 +1,8 @@
+platform: template
+sensors:
+  humidifier_water_level:
+    friendly_name: Уровень воды
+    unit_of_measurement: '%'
+    entity_id: fan.zhimi_humidifier_ca1
+    value_template: "{{ [state_attr('fan.zhimi_humidifier_ca1', 'depth') / 1.2, 100] | min | int }}"
+    icon_template: "mdi:cup"
