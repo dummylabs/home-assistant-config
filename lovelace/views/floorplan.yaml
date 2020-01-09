@@ -1,0 +1,140 @@
+path: dashboard
+title: Home Control Panel
+panel: true
+cards:
+  - type: picture-elements
+    image: /local/lovelace/floorplaner.png
+    elements:
+      - type: state-badge
+        entity: person.dima
+        style:
+          top: 57%
+          left: 20%
+      - type: state-badge
+        entity: person.vika
+        style:
+          top: 57%
+          left: 36%
+
+
+      - type: state-label
+        entity: sensor.magicair_temperature
+        style:
+          top: 22%
+          left: 38%
+          background-color: "rgba(0, 0, 0, 0.3)"
+          color: white
+          border-radius: 50%
+      - type: state-label
+        entity: sensor.magicair_humidity
+        style:
+          top: 25%
+          left: 38%
+          background-color: "rgba(0, 0, 0, 0.3)"
+          color: white
+      - type: state-label
+        entity: sensor.magicair_co2
+        style:
+          top: 28%
+          left: 38%
+          background-color: "rgba(0, 0, 0, 0.3)"
+          color: white
+      - type: state-label
+        entity: sensor.temperature_egor
+        style:
+          top: 24%
+          left: 68%
+          background-color: "rgba(0, 0, 0, 0.3)"
+          color: white
+      - type: state-label
+        entity: sensor.humidity_egor
+        style:
+          top: 27.8%
+          left: 68%
+          background-color: "rgba(0, 0, 0, 0.3)"
+          color: white
+
+      - type: state-icon
+        entity: switch.shelly_4
+        style:
+          --iron-icon-stroke-color: "#969696"
+          border-radius: 50%
+          text-align: center
+          top: 24%
+          left: 58%
+          background-color: "rgba(0, 0, 0, 0.3)"
+
+      - type: state-label
+        entity: sensor.temperature_masha
+        style:
+          top: 50%
+          left: 78%
+          background-color: "rgba(0, 0, 0, 0.3)"
+          color: white
+      - type: state-label
+        entity: sensor.humidity_masha
+        style:
+          top: 53.8%
+          left: 78%
+          background-color: "rgba(0, 0, 0, 0.3)"
+          color: white
+      - type: state-icon
+        entity: switch.shelly_1
+        style:
+          top: 61%
+          left: 72%
+          --iron-icon-stroke-color: "#969696"
+          border-radius: 50%
+          text-align: center
+          background-color: "rgba(0, 0, 0, 0.3)"
+      - type: state-icon
+        entity: binary_sensor.motion_masha
+        icon: 'mdi:run'
+        style:
+          top: 55%
+          left: 85%
+          #--iron-icon-fill-color: white
+          #--iron-icon-stroke-color: "#969696"
+          border-radius: 50%
+          text-align: center
+          background-color: "rgba(0, 0, 0, 0.3)"
+### kitchen
+      - type: state-label
+        entity: sensor.temperature_kitchen
+        style:
+          top: 80%
+          left: 88%
+          background-color: "rgba(0, 0, 0, 0.3)"
+          color: white
+      - type: state-label
+        entity: sensor.humidity_kitchen
+        style:
+          top: 83.8%
+          left: 88%
+          background-color: "rgba(0, 0, 0, 0.3)"
+          color: white
+      - type: state-icon
+        entity: binary_sensor.motion_kitchen
+        icon: 'mdi:run'
+        style:
+          top: 92%
+          left: 92%
+          #--iron-icon-fill-color: white
+          #--iron-icon-stroke-color: "#969696"
+          border-radius: 50%
+          text-align: center
+          background-color: "rgba(0, 0, 0, 0.3)"
+          color: white
+
+### corridor
+      - type: state-icon
+        entity: binary_sensor.motion_corridor
+        icon: 'mdi:run'
+        style:
+          top: 55%
+          left: 55%
+          #--iron-icon-fill-color: white
+          #--iron-icon-stroke-color: "#969696"
+          border-radius: 50%
+          text-align: center
+          background-color: "rgba(0, 0, 0, 0.3)"

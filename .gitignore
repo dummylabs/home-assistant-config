@@ -41,6 +41,7 @@ esphome/**/
 aircast.xml
 airsonos.xml
 notebooks
+webostv.conf
 
 # Ignore files created by IDE's
 .vscode

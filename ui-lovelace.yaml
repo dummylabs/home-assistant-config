@@ -1,0 +1,4 @@
+name: my home
+title: my home
+views:
+  - !include lovelace/views/floorplan.yaml
