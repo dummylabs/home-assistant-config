@@ -25,6 +25,28 @@ cards:
           top: 12%
           left: 35%
           background-color: "rgba(0, 0, 0, 0.3)"
+
+
+      - type: state-icon
+        entity: climate.tion_breezer_3s_1
+        style:
+          --iron-icon-stroke-color: "#969696"
+          border-radius: 50%
+          text-align: center
+          top: 30%
+          left: 15%
+          --iron-icon-fill-color: white
+          background-color: "rgba(0, 0, 0, 0.3)"
+      - type: state-label
+        entity: sensor.tion_breezer_3s_1_speed
+        style:
+          top: 30%
+          left: 17%
+          background-color: "rgba(0, 0, 0, 0.3)"
+          color: white
+          border-radius: 50%
+
+
       - type: state-label
         entity: sensor.humidifier_water_level
         style:

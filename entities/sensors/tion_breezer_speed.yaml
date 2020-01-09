@@ -1,0 +1,7 @@
+platform: template
+sensors:
+  tion_breezer_3s_1_speed:
+    friendly_name: Скорость бризера
+    entity_id: climate.tion_breezer_3s_1
+    value_template: "{{ state_attr('climate.tion_breezer_3s_1', 'speed') | int }}"
+    icon_template: "mdi:fan"
