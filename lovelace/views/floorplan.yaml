@@ -16,6 +16,15 @@ cards:
           top: 57%
           left: 36%
 
+      - type: state-icon
+        entity: fan.zhimi_humidifier_ca1
+        style:
+          --iron-icon-stroke-color: "#969696"
+          border-radius: 50%
+          text-align: center
+          top: 12%
+          left: 35%
+          background-color: "rgba(0, 0, 0, 0.3)"
 
       - type: state-label
         entity: sensor.magicair_temperature
