@@ -1,4 +1,6 @@
 name: my home
 title: my home
+resources: !include_dir_list lovelace/resources
+custom_header: !include lovelace/cards/custom_header.yaml
 views:
   - !include lovelace/views/floorplan.yaml

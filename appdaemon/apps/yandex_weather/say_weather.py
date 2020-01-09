@@ -31,11 +31,15 @@ class SayWeather(hass.Hass):
         self.log('Text spoken')
  
     def delayed_announce(self, kwargs):
-        self.tts.speak('Входная дверь открыта!')
+        message = 'Входная дверь открыта!'
+        if self.get_state('input_select.dima_status_dropdown') == 'just arrived':
+            message = 'Ваш папа пришёл!'
+        self.tts.speak(message)
         for person in ['device_tracker.phone_dima', 'device_tracker.phone_vika']:
             if self.get_state(person) == 'home':
                 return
-        self.messenger.message('Входная дверь открыта!')
+        self.messenger.message(message)
+        #self.tts.speak('Входная дверь открыта!')
 
     def say_entrance_opened(self, entity, attribute, old, new, kwargs):
 

@@ -1,0 +1,5 @@
+presence:
+  module: presence
+  class: NonBinaryPresence
+  dependencies:
+    - messages

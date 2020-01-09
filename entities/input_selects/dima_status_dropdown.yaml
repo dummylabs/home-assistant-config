@@ -1,0 +1,9 @@
+dima_status_dropdown:
+  name: Dima
+  options:
+    - home
+    - just arrived
+    - just left
+    - away
+    - extended away
+  initial: home

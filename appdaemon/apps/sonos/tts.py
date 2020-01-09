@@ -102,8 +102,8 @@ class TTS(hass.Hass):
             #volume = 0.5
 
         self._snapshot()
-        #self.sonos_manager.snapshot_all()
-        ##master_sonos_player = self.sonos_manager.group()
+        ##self.sonos_manager.snapshot_all()
+        ###master_sonos_player = self.sonos_manager.group()
         master_sonos_player = self.sonos_manager.entities[0]
         master_sonos_player.volume = volume
         master_sonos_player.play_file(self.opener_file_base + opener)

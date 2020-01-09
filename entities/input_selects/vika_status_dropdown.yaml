@@ -1,0 +1,9 @@
+vika_status_dropdown:
+  name: Vika
+  options:
+    - home
+    - just arrived
+    - just left
+    - away
+    - extended away
+  initial: home
