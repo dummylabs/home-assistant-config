@@ -5,6 +5,32 @@ cards:
   - type: picture-elements
     image: /local/lovelace/floorplaner.png
     elements:
+      - type: state-label
+        entity: sensor.coffee_maker_last_changed
+        style:
+          top: 75%
+          left: 65%
+          background-color: "rgba(0, 0, 0, 0.3)"
+          color: white
+          border-radius: 50%
+
+      - type: state-label
+        entity: sensor.entrance_last_changed
+        style:
+          top: 70%
+          left: 53%
+          background-color: "rgba(0, 0, 0, 0.3)"
+          color: white
+          border-radius: 50%
+
+      - type: icon
+        title: coffee maker
+        entity: binary_sensor.coffee_maker
+        icon: mdi:coffee-outline
+        style:
+          top: 75%
+          left: 60%
+       
       - type: state-badge
         entity: person.dima
         style:

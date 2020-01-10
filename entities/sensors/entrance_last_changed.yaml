@@ -1,0 +1,5 @@
+platform: template
+sensors:
+  entrance_last_changed:
+    value_template: "{{relative_time(states.binary_sensor.entrance.last_changed)}}"
+    entity_id: sensor.time

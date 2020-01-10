@@ -1,0 +1,5 @@
+platform: template
+sensors:
+  coffee_maker_last_changed:
+    value_template: "{{relative_time(states.binary_sensor.coffee_maker.last_changed)}}"
+    entity_id: sensor.time

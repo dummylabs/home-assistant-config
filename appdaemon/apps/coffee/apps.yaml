@@ -1,0 +1,5 @@
+coffee:
+  module: coffee
+  class: CoffeeMaker
+  dependencies:
+    - tts

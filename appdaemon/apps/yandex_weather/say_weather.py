@@ -38,7 +38,7 @@ class SayWeather(hass.Hass):
         for person in ['device_tracker.phone_dima', 'device_tracker.phone_vika']:
             if self.get_state(person) == 'home':
                 return
-        self.messenger.message(message)
+        #self.messenger.message(message)
         #self.tts.speak('Входная дверь открыта!')
 
     def say_entrance_opened(self, entity, attribute, old, new, kwargs):
