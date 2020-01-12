@@ -6,6 +6,10 @@ class CoffeeMaker(hass.Hass):
         self.listen_state(self.state_handler, 'binary_sensor.coffee_maker')
         self.tts = self.get_app('tts')
         self.start = None
+        self.listen_event(self.coffee_ready_event, "esphome.coffee_ready")
+
+    def coffee_ready_event(self, entity, data, kwargs):
+        self.log(f'COFFEE is READY')
 
     def state_handler(self, entity, attribute, old, new, kwargs):
         if old == 'off' and new == 'on':
@@ -17,5 +21,7 @@ class CoffeeMaker(hass.Hass):
                 self.tts.speak('Возможно вы забыли добавить воду в кофеварку', volume=0.3, opener='notify1.mp3')
             else:
                 self.tts.speak('Кофе готов.', volume=0.3, opener='notify1.mp3')
+
+
             
             

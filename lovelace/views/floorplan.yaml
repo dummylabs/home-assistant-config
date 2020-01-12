@@ -1,5 +1,5 @@
 path: dashboard
-title: Home Control Panel
+title: Dashboard
 panel: true
 cards:
   - type: picture-elements
@@ -165,6 +165,14 @@ cards:
           border-radius: 50%
           text-align: center
           background-color: "rgba(0, 0, 0, 0.3)"
+      - type: state-label
+        entity: sensor.senseair_co2_value
+        style:
+          top: 57.5%
+          left: 78%
+          background-color: "rgba(0, 0, 0, 0.3)"
+          color: white
+
 ### kitchen
       - type: state-label
         entity: sensor.temperature_kitchen

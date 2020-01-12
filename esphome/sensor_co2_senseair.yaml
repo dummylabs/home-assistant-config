@@ -37,6 +37,7 @@ sensor:
     co2:
       name: "$devicename CO2 Value"
     update_interval: 60s
+    
   - platform: wifi_signal
     name: "$devicename WiFi Signal"
     update_interval: 10s    

@@ -62,8 +62,8 @@ class NonBinaryPresence(hass.Hass):
             self.log(f'dropdown {entity} changed from {old} to {new}')
             if new == 'away':
                 self.set_handle(person, self.run_in(self.delayed_state_change, EXTENDED_DELAY, person=person, state='extended away'))
-            if new == 'just arrived':
-                self.messenger.message(f'Welcome home, {person}!!!')
+            #if new == 'just arrived':
+            #    self.messenger.message(f'Welcome home, {person}!!!')
                 
 
     # handle changes of device tracker sensor

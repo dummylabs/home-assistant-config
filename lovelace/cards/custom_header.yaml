@@ -13,6 +13,7 @@ exceptions:
       media_query: "(max-width: 600px)"
     config:
       footer_mode: true
-      menu_hide: true
+      menu_hide: false
       voice_hide: true
       options_hide: true
+      default_tab: mobile

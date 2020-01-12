@@ -1,2 +1,3 @@
 sensor.magicair_co2:
   friendly_name: CO2 в спальне
+  icon: mdi:periodic-table-co2

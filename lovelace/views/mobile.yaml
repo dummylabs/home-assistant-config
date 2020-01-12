@@ -1,0 +1,18 @@
+path: mobile
+title: Mobile
+id: mobile
+cards:
+  - type: entities
+    id: home
+    title: Home
+    show_header_toggle: false
+    entities:
+      - entity: person.dima
+        secondary_info: last-changed
+      - entity: person.vika
+        secondary_info: last-changed
+      - entity: input_boolean.mode_do_not_disturb
+      - entity: sensor.magicair_co2
+      - entity: sensor.senseair_co2_value
+      - entity: climate.tion_breezer_3s_1
+      - entity:  sensor.tion_breezer_3s_1_speed

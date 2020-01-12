@@ -9,6 +9,10 @@ esphome:
   board: esp01_1m
   on_boot: 
   - switch.turn_on: relay
+  - homeassistant.event:
+      event: esphome.coffee_ready
+      data:
+        title: Coffee is ready
 
 wifi:
   ssid: !secret ssid
