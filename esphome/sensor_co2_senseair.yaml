@@ -1,0 +1,49 @@
+esphome:
+  name: sensor_co2_senseair
+  platform: ESP8266
+  board: d1_mini
+
+substitutions:
+  devicename: senseair
+
+wifi:
+  ssid: !secret ssid
+  password: !secret pwd
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Esp2 Fallback Hotspot"
+    password: !secret ap_pwd
+
+captive_portal:
+
+# disable logging
+logger:
+  baud_rate: 0
+
+# Enable Home Assistant API
+api:
+
+ota:
+
+# Example configuration entry
+uart:
+  rx_pin: 1
+  tx_pin: 3
+  baud_rate: 9600
+
+sensor:
+  - platform: senseair
+    co2:
+      name: "$devicename CO2 Value"
+    update_interval: 60s
+  - platform: wifi_signal
+    name: "$devicename WiFi Signal"
+    update_interval: 10s    
+  - platform: uptime
+    name: "$devicename Uptime"
+
+text_sensor:
+  - platform: version
+    name: "$devicename ESPHome Version"
+

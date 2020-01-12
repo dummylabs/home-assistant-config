@@ -1,0 +1,95 @@
+#Configuration for Sonoff POW R1
+
+substitutions:
+  devicename: switch_coffee_maker
+
+esphome:
+  name: $devicename
+  platform: ESP8266
+  board: esp01_1m
+  on_boot: 
+  - switch.turn_on: relay
+
+wifi:
+  ssid: !secret ssid
+  password: !secret pwd
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Switch Coffee Maker"
+    password: !secret ap_pwd
+
+captive_portal:
+
+# Enable logging
+logger:
+  baud_rate: 0
+
+# Enable Home Assistant API
+api:
+
+ota:
+
+uart:
+  rx_pin: RX
+  baud_rate: 4800
+
+binary_sensor:
+  - platform: gpio
+    pin:
+      number: GPIO0
+      mode: INPUT_PULLUP
+      inverted: True
+    name: "$devicename Button"
+    on_press:
+      - switch.toggle: fakebutton
+
+switch:
+  - platform: template
+    name: "$devicename Relay"
+    optimistic: true
+    id: fakebutton
+    turn_on_action:
+    - switch.turn_on: relay
+    - light.turn_on: led
+    turn_off_action:
+    - switch.turn_off: relay
+    - light.turn_off: led
+  - platform: gpio
+    id: relay
+    pin: GPIO12
+
+output:
+  - platform: esp8266_pwm
+    id: pow_blue_led
+    pin:
+      number: GPIO13
+      inverted: True
+
+light:
+  - platform: monochromatic
+    output: pow_blue_led
+    id: led
+
+sensor:
+  - platform: wifi_signal
+    name: "$devicename WiFi Signal"
+    update_interval: 60s
+  - platform: uptime
+    name: "$devicename Uptime"
+  - platform: hlw8012
+    sel_pin: 5
+    cf_pin: 14
+    cf1_pin: 13
+    current:
+      name: "$devicename Current"
+    voltage:
+      name: "$devicename Voltage"
+    power:
+      name: "$devicename Power"
+      filters:
+        - sliding_window_moving_average:
+            window_size: 5
+            send_every: 5
+    update_interval: 2s
+    voltage_divider: 2600
