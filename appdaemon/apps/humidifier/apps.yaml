@@ -1,3 +1,5 @@
 humidifier:
   module: humidifier
   class: Humidifier
+  dependencies:
+    - messages
