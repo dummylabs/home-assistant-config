@@ -5,11 +5,13 @@ treshold = 40
 
 class CoffeeMaker(hass.Hass):
     def initialize(self):
-        self.listen_state(self.state_handler, 'binary_sensor.coffee_maker')
+        self.listen_state(self.state_handler, 'sensor.switch_coffee_maker_power')
         self.tts = self.get_app('tts')
         self.start = None
 
     def state_handler(self, entity, attribute, old, new, kwargs):
+        old = int(old)
+        new = int(new)
         if old < treshold and new >= treshold:
             self.start = now = self.datetime()
         if old >= treshold and new < treshold and self.start:
