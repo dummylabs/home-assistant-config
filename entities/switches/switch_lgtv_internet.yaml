@@ -1,0 +1,7 @@
+platform: command_line
+switches:
+  lgtv_internet:
+    command_on: "python3 /config/scripts/access.py lgtv_mac permit"
+    command_off: "python3 /config/scripts/access.py lgtv_mac deny"
+    command_state: "python3 /config/scripts/access.py lgtv_mac status"
+    friendly_name: Интернет телевизор

@@ -1,0 +1,7 @@
+platform: command_line
+switches:
+  nesthub_internet:
+    command_on: "python3 /config/scripts/access.py nesthub_mac permit"
+    command_off: "python3 /config/scripts/access.py nesthub_mac deny"
+    command_state: "python3 /config/scripts/access.py nesthub_mac status"
+    friendly_name: Интернет фоторамка

@@ -44,7 +44,7 @@ class NonBinaryPresence(hass.Hass):
 
     # change state of fake sensor and cancel all delayed changes if any
     def change_state(self, person, state):
-        self.log(f'state_change called. for {person} to {state}')
+        #self.log(f'state_change called. for {person} to {state}')
         handle = self.get_handle(person)
         if handle:
             self.log(f'Cancel running task handle for {person}')
@@ -52,7 +52,6 @@ class NonBinaryPresence(hass.Hass):
             #remove delayed_state_change handles for the person if we have any
             self.set_handle(person, None)
         self.select_option(settings[person][0], state)
-        #self.log('Status of {} changed to {}'.format(person, state))
 
     # handle changes of fake sensor
     # schedule state change after specific time, e.g. away->extended_away
@@ -62,19 +61,14 @@ class NonBinaryPresence(hass.Hass):
             self.log(f'dropdown {entity} changed from {old} to {new}')
             if new == 'away':
                 self.set_handle(person, self.run_in(self.delayed_state_change, EXTENDED_DELAY, person=person, state='extended away'))
-            #if new == 'just arrived':
-            #    self.messenger.message(f'Welcome home, {person}!!!')
-                
 
     # handle changes of device tracker sensor
     # schedule state change after specific time, e.g. just_arrived->home
     def tracker_handler(self, entity, attribute, old, new, kwargs):
         person = self.get_person(entity)
-        if new == old:
-            self.log(f'tracker {entity} state remains {new} for person: {person}')
-        self.log(f'tracker {entity} changed from {old} to {new}. person: {person}')
-        if not person:
+        if new == old or not person:
             return
+        self.log(f'tracker {entity} changed from {old} to {new}. person: {person}')
         prev = self.get_state(settings[person][0])
         self.log(f'previous state of the {person} is {prev}')
         if new == 'home':
@@ -83,10 +77,9 @@ class NonBinaryPresence(hass.Hass):
             else:
                 self.change_state(person, 'just arrived')
                 self.set_handle(person, self.run_in(self.delayed_state_change, DELAY, person=person, state='home'))
-        else: # consider away, moving and driving as away 
-            if prev == 'home':
-                self.change_state(person, 'just left')
-                self.set_handle(person, self.run_in(self.delayed_state_change, DELAY, person=person, state='away'))
+        elif prev == 'home': # consider away, moving and driving as not_home 
+            self.change_state(person, 'just left')
+            self.set_handle(person, self.run_in(self.delayed_state_change, DELAY, person=person, state='away'))
     
     def delayed_state_change(self, kwargs):
         self.log(f'Delayed change applied with kwargs:{kwargs}')

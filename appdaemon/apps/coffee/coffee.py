@@ -10,9 +10,10 @@ class CoffeeMaker(hass.Hass):
         self.start = None
 
     def state_handler(self, entity, attribute, old, new, kwargs):
-        old = int(old)
-        new = int(new)
+        old = float(old)
+        new = float(new)
         if old < treshold and new >= treshold:
+            self.log('Counter started')
             self.start = now = self.datetime()
         if old >= treshold and new < treshold and self.start:
             duration = (self.datetime()-self.start).total_seconds()
