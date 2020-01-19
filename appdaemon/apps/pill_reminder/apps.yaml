@@ -1,0 +1,11 @@
+pill_reminder:
+  module: pill_reminder
+  class: PillReminder
+  # how often reminder should occur (seconds)
+  repeat_every: 180
+  # how long we should wait until vitamin reminder starts (seconds)
+  run_vitamin_afer: 900
+  dependencies:
+    - messages
+    - tts
+

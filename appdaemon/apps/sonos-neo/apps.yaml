@@ -1,0 +1,15 @@
+neosonos:
+  module: neosonos
+  class: NeoSonos
+  entity: media_player.kitchen
+  tts: tts/yandextts_say
+  opener_file_base: http://192.168.1.62:8123/local/media/
+  dependencies:
+    - dnd
+
+test_sonos:
+  module: test_sonos
+  class: TestSonos
+
+
+

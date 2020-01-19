@@ -18,3 +18,5 @@ cards:
       - entity: sensor.tion_breezer_3s_1_speed
       - entity: switch.nesthub_internet
       - entity: switch.lgtv_internet
+      - entity: input_boolean.mode_take_pill
+      - entity: input_boolean.mode_take_vitamin
