@@ -12,6 +12,7 @@ __pycache__
 .storage
 deps
 www/avatars
+appdaemon/apps/health2
 
 # Specific file ignores
 .config_entries.json

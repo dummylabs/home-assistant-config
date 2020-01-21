@@ -1,0 +1,3 @@
+platform: gismeteo
+mode: daily
+name: my_gismeteo
