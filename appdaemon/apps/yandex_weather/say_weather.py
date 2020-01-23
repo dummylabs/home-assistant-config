@@ -12,7 +12,8 @@ class SayWeather(hass.Hass):
         #self.handle = self.run_every(self.my_callback, now, 15*60)
         #self.handle = self.run_in(self.my_callback, 5)
         #self.handle = self.run_hourly(self.my_callback, None)
-        self.tts = self.get_app('tts')
+        #self.tts = self.get_app('tts')
+        self.tts = self.get_app('neosonos')
         self.listen_event(self.say_weather, 'xiaomi_aqara.click', entity_id = 'binary_sensor.switch_announcer', click_type = "single")
         self.listen_state(self.say_entrance_opened, 'binary_sensor.entrance')
 

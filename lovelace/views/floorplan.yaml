@@ -6,7 +6,7 @@ cards:
     image: /local/lovelace/floorplaner.png
     elements:
       - type: state-label
-        entity: sensor.coffee_maker_last_changed
+        entity: binary_sensor.coffee_maker_last_changed
         style:
           top: 75%
           left: 65%
@@ -15,7 +15,7 @@ cards:
           border-radius: 50%
 
       - type: state-label
-        entity: sensor.entrance_last_changed
+        entity: binary_sensor.entrance_last_changed
         style:
           top: 70%
           left: 53%

@@ -4,7 +4,7 @@ pill_reminder:
   # how often reminder should occur (seconds)
   repeat_every: 180
   # how long we should wait until vitamin reminder starts (seconds)
-  run_vitamin_afer: 900
+  run_vitamin_afer: 1500
   dependencies:
     - messages
     - tts

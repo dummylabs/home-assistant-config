@@ -10,3 +10,4 @@ sayweather:
   class: SayWeather
   dependencies:
     - tts
+    - neosonos

@@ -9,7 +9,7 @@ messages:
 errors:
   module: errors
   class: ErrorCounter
-  shelf_path: "/config/appdaemon/apps/errors" 
+  shelf_path: "/config/appdaemon/apps/errors.db" 
   treshold: 5
   dependencies:
     - messages

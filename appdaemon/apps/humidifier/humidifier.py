@@ -1,4 +1,4 @@
-﻿import appdaemon.plugins.hass.hassapi as hass
+import appdaemon.plugins.hass.hassapi as hass
 import datetime
 
 # 
@@ -7,7 +7,8 @@ class Humidifier(hass.Hass):
         self.messenger = self.get_app('messages')
         self.run_once(self.switch_on, datetime.time(10, 0, 0))
         self.run_once(self.switch_off, datetime.time(23, 00, 0))
-        self.run_every(self.check_level, self.datetime(), 5*60)
+        self.listen_state(self.state_handler, entity='sensor.humidifier_water_level')
+        #self.run_every(self.check_level, self.datetime(), 5*60)
         
     def switch_on(self, kwargs):
         self.call_service('fan/turn_on', entity_id="fan.zhimi_humidifier_ca1")
@@ -23,3 +24,8 @@ class Humidifier(hass.Hass):
            self.log(f'Humidifier level is low ({level})')
            self.messenger.alert(f'Низкий уровень воды в увлажнителе: {level}')
 
+    def state_handler(self, entity, attribute, old, new, kwargs):
+        level = int(new)
+        self.log(f'Humidifier level: ({level})')
+        if not(level % 5) and level<31:
+            self.messenger.alert(f'Низкий уровень воды в увлажнителе: {level}')

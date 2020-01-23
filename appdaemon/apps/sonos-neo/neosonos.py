@@ -6,11 +6,17 @@ class NeoSonos(hass.Hass):
         self.tts = self.args['tts']
         self.dnd = self.get_app('dnd')
         self.opener_file_base = self.args['opener_file_base']
-        self.delay = 2
+        self._snapshot = False
+        self.listen_state(self._listen_player_state, self.entity, duration=5, old='playing',  new='paused')
+        self.dnd_volume = self.args['dnd_volume']
+        self.volume = self.args['volume']
+        self.delay = self.args['opener_delay']
+        self.opener = self.args['opener']
+
 
     def _listen_player_state(self, entity, attribute, old, new, kwargs):
         self.restore()
-
+    
     @property
     def volume(self):
         """Retrieve the audio player's volume."""
@@ -25,18 +31,22 @@ class NeoSonos(hass.Hass):
             volume_level=value)
 
     def snapshot(self):
-        self.log('SNAPSHOT SPEAKER STATE')
+        self._snapshot = True
+        self.log('set snapshot to true')
+        self.log('SNAPSHOT SPEAKER STATE!')
         self.call_service(
             'sonos/snapshot',
             entity_id=self.entity,
             with_group=False)
 
     def restore(self):
-        self.log('RESTORE SPEAKER STATE')
-        self.call_service(
-            'sonos/restore',
-            entity_id=self.entity,
-            with_group=False)
+        if self._snapshot:
+            self._snapshot = False
+            self.log('RESTORE SPEAKER STATE')
+            self.call_service(
+                'sonos/restore',
+                entity_id=self.entity,
+                with_group=False)
 
     def play_file(self, url):
         self.call_service(
@@ -58,10 +68,14 @@ class NeoSonos(hass.Hass):
             self.tts,
             entity_id=str(sonos_player),
             message=text)
+        
 
-    def speak(self, text, volume=0.5, opener='e-mail.mp3'):
+    def speak(self, text, volume=None, opener=None):
+        opener = opener or self.opener
+        volume = volume or self.volume
         if self.dnd.is_set():
-            volume = 0.2
+            volume = self.dnd_volume
+        
         self.snapshot()
         self.volume = volume
         self.play_file(self.opener_file_base + opener)
@@ -72,4 +86,5 @@ class NeoSonos(hass.Hass):
             text=text,
             volume=volume)
 
-        self.listen_state(self._listen_player_state, self.entity, duration=5, old='playing',  new='paused', oneshot=True)
+        #self.listen_state(self._listen_player_state, self.entity, duration=5, old='playing',  new='paused', oneshot=True)
+        

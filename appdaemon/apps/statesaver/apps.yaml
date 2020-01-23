@@ -1,0 +1,8 @@
+statesaver:
+  module: statesaver
+  class: StateSaver
+  entities:
+    - binary_sensor.entrance
+    - binary_sensor.coffee_maker
+  shelf_path: "/config/appdaemon/apps/statesaver/statesaver.db"
+  update_period: 120
