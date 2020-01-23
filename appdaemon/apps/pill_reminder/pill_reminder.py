@@ -1,5 +1,6 @@
 import appdaemon.plugins.hass.hassapi as hass
 import datetime
+import globals
 
 TRIGGER1 = "input_boolean.mode_take_pill"
 TRIGGER2 = "input_boolean.mode_take_vitamin"
@@ -30,7 +31,7 @@ class PillReminder(hass.Hass):
     def on_coffee_started(self):
         if not self.pill_handle and self.is_armed(TRIGGER1):
             self.log('Coffee is brewing, start pills reminder cycle')
-            self.pill_handle = self.run_every(self.reminder, self.datetime() + datetime.timedelta(seconds=1), self.repeat_every)
+            self.pill_handle = self.run_every(self.reminder, globals.now() + datetime.timedelta(seconds=1), self.repeat_every)
         else:
             self.log('Coffee is brewing, but reminders are switched off')
 

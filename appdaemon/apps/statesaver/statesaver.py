@@ -6,7 +6,7 @@ import timeago
 class StateSaver(hass.Hass):
     def initialize(self):
         self.path = self.args['shelf_path']
-        self.run_every(self.update_all_entities, self.datetime(), self.args['update_period'])
+        self.run_every(self.update_all_entities, globals.now(), self.args['update_period'])
         self.listen_state(self.state_handler)
 
     def update_all_entities(self, kwargs):

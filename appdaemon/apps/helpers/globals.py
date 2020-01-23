@@ -1,6 +1,11 @@
-﻿import shelve
+import shelve
 import os, glob
+import datetime
 PATH = '/config/appdaemon/apps/'
+
+def now():
+    return datetime.datetime.now() + datetime.timedelta(seconds=1)
+
 
 def get_value(filename, what, default=None):
     with shelve.open(filename, 'c') as shelf:

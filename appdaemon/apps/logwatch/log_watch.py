@@ -1,6 +1,7 @@
 import re
 from datetime import datetime
 import appdaemon.plugins.hass.hassapi as hass
+import globals
 
 DATE_PATTERN = r"(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}) (\w+ .*$)"
 ERR_PATTERN = r"error|exception"
@@ -9,7 +10,7 @@ MAX_ERRORS = 10
 
 class LogWatch(hass.Hass):
     def initialize(self):
-        self.handle = self.run_every(self.check_log, self.datetime(), 15*60)
+        self.handle = self.run_every(self.check_log, globals.now(), 15*60)
         self.messenger = self.get_app("messages")
         self.listen_event(self.receive_telegram_callback, 'telegram_callback')
         self.muted = True #!!!!!

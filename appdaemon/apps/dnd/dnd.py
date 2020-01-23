@@ -1,12 +1,13 @@
 import appdaemon.plugins.hass.hassapi as hass
 from datetime import datetime
+import globals
 
 class DND(hass.Hass):
     def initialize(self):
         #self.handle = self.run_in(self.my_callback, 5)
         self.listen_state(self.on_masha_door_changed, "binary_sensor.door_masha")
         #self.handle = self.run_hourly(self.my_callback, None)
-        self.run_every(self.my_callback, self.datetime(), 5*60)
+        self.run_every(self.my_callback, globals.now(), 5*60)
 
     def my_callback(self, kwargs):
         now = datetime.now().hour

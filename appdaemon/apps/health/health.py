@@ -1,12 +1,13 @@
-﻿import appdaemon.plugins.hass.hassapi as hass
+import appdaemon.plugins.hass.hassapi as hass
 import errors
 import datetime
+import globals
 
 class HealthMonitor(hass.Hass):
     def initialize(self):
         self.messenger = self.get_app('messages')
         self.monitored_entities = self.args['monitored_entities'].split(",")
-        self.run_every(self.check_states, self.datetime(), 15*60)
+        self.run_every(self.check_states, globals.now(), 15*60)
         
     def check_states(self, kwargs): 
         errors = []

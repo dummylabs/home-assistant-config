@@ -8,7 +8,6 @@ class Humidifier(hass.Hass):
         self.run_once(self.switch_on, datetime.time(10, 0, 0))
         self.run_once(self.switch_off, datetime.time(23, 00, 0))
         self.listen_state(self.state_handler, entity='sensor.humidifier_water_level')
-        #self.run_every(self.check_level, self.datetime(), 5*60)
         
     def switch_on(self, kwargs):
         self.call_service('fan/turn_on', entity_id="fan.zhimi_humidifier_ca1")
