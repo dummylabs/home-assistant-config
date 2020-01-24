@@ -7,5 +7,5 @@ pill_reminder:
   run_vitamin_afer: 1500
   dependencies:
     - messages
-    - tts
+    - neosonos
 

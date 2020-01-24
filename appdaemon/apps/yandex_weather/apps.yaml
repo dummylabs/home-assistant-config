@@ -9,5 +9,4 @@ sayweather:
   module: say_weather
   class: SayWeather
   dependencies:
-    - tts
     - neosonos

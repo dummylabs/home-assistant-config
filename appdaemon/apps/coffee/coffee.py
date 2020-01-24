@@ -6,7 +6,7 @@ treshold = 40
 class CoffeeMaker(hass.Hass):
     def initialize(self):
         self.listen_state(self.state_handler, 'sensor.switch_coffee_maker_power')
-        self.tts = self.get_app('tts')
+        self.tts = self.get_app('neosonos')
         self.start_time = None
         self.event_fired = False
 

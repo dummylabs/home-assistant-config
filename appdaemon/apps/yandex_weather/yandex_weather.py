@@ -4,6 +4,7 @@ from requests import ConnectionError
 from bs4 import BeautifulSoup
 import soupsieve
 import requests
+import globals
 
 try:
     from appdaemon.plugins.hass.hassapi import Hass
@@ -12,9 +13,8 @@ except:
 
 class YandexWeather(Hass):
     def initialize(self):
-        now = self.datetime()
         self.location = self.args['location']
-        self.handle = self.run_every(self.my_callback, now, 15*60)
+        self.handle = self.run_every(self.my_callback, globals.now(), 15*60)
         self.errors = self.get_app('errors')
 
     def my_callback(self, kwargs):

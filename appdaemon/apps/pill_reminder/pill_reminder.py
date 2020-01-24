@@ -13,7 +13,7 @@ class PillReminder(hass.Hass):
     def initialize(self):
         self.repeat_every = self.args['repeat_every']
         self.run_vitamin_after = self.args['run_vitamin_afer']
-        self.tts = self.get_app('tts')
+        self.tts = self.get_app('neosonos')
         self.messenger = self.get_app('messages')
         self.listen_state(self.on_coffee, 'binary_sensor.coffee_maker')
         self.listen_event(self.disarm, 'xiaomi_aqara.click', entity_id = 'binary_sensor.switch_pill_confirmed', click_type = "single")
