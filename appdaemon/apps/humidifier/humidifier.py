@@ -17,14 +17,9 @@ class Humidifier(hass.Hass):
         self.call_service('fan/turn_off', entity_id="fan.zhimi_humidifier_ca1")
         self.log('Humidifier switched off')
 
-    def check_level(self, kwargs):
-        level = int(self.get_state('sensor.humidifier_water_level'))
-        if level < 40:
-           self.log(f'Humidifier level is low ({level})')
-           self.messenger.alert(f'Низкий уровень воды в увлажнителе: {level}')
 
     def state_handler(self, entity, attribute, old, new, kwargs):
         level = int(new)
         self.log(f'Humidifier level: ({level})')
         if not(level % 5) and level<31:
-            self.messenger.alert(f'Низкий уровень воды в увлажнителе: {level}')
+            self.messenger.bell(f'Низкий уровень воды в увлажнителе: {level}')

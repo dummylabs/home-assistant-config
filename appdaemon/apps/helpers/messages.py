@@ -1,4 +1,4 @@
-﻿#encoding utf-8
+#encoding utf-8
 import appdaemon.plugins.hass.hassapi as hass
 
 class Messenger(hass.Hass):
@@ -19,3 +19,10 @@ class Messenger(hass.Hass):
                   target=self.chat_id,
                   message='ℹ {}'.format(self.sanitize(msg)),
                   disable_notification=True)
+
+    def bell(self, msg):
+        self.call_service('telegram_bot/send_message',
+                  target=self.chat_id,
+                  message='🔔 {}'.format(self.sanitize(msg)),
+                  disable_notification=True)
+
