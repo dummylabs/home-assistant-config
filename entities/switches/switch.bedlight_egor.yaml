@@ -1,0 +1,11 @@
+platform: mqtt
+name: "Bedlight Egor"
+state_topic: "stat/egor_switch/POWER"
+command_topic: "cmnd/egor_switch/POWER"
+availability_topic: "tele/egor_switch/LWT"
+qos: 1
+payload_on: "ON"
+payload_off: "OFF"
+payload_available: "Online"
+payload_not_available: "Offline"
+retain: true

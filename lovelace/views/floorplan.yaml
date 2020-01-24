@@ -53,6 +53,19 @@ cards:
           background-color: "rgba(0, 0, 0, 0.3)"
 
 
+
+      - type: state-icon
+        entity: media_player.lgtv
+        style:
+          --iron-icon-stroke-color: "#969696"
+          border-radius: 50%
+          text-align: center
+          top: 32%
+          left: 27%
+          --iron-icon-fill-color: white
+          background-color: "rgba(0, 0, 0, 0.3)"
+
+
       - type: state-icon
         entity: climate.tion_breezer_3s_1
         style:
@@ -120,6 +133,18 @@ cards:
           left: 68%
           background-color: "rgba(0, 0, 0, 0.3)"
           color: white
+          
+
+      - type: state-icon
+        entity: switch.bedlight_egor
+        style:
+          --iron-icon-stroke-color: "#969696"
+          border-radius: 50%
+          text-align: center
+          top: 9%
+          left: 72%
+          background-color: "rgba(0, 0, 0, 0.3)"
+
 
       - type: state-icon
         entity: switch.shelly_4
