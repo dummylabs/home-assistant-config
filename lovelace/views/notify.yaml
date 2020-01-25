@@ -1,0 +1,16 @@
+path: notify
+title: Notifications
+id: notify
+cards:
+  - type: entities
+    id: notify
+    title: Управление нотификациями
+    show_header_toggle: false
+    entities:
+      - entity: switch.notify_door_opened
+      - entity: switch.notify_window_opened
+      - entity: switch.notify_movement_detected
+      - entity: switch.notify_humidifier_empty
+      - entity: switch.notify_log_errors
+      - entity: switch.notify_offline_devices
+      - entity: switch.notify_person_tracking

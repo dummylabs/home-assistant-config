@@ -1,0 +1,60 @@
+notify_humidifier_empty:
+  module: switcher
+  class: Switcher
+  switch_id: switch.notify_humidifier_empty
+  switch_name: Низкий уровень воды в увлажнителе 
+  dependencies:
+    - shelf      
+
+notify_log_errors:
+  module: switcher
+  class: Switcher
+  switch_id: switch.notify_log_errors
+  switch_name: Большое количество ошибок в логе 
+  dependencies:
+    - shelf     
+
+notify_offline_devices:
+  module: switcher
+  class: Switcher
+  switch_id: switch.notify_offline_devices
+  switch_name: Устройства в офлайне 
+  dependencies:
+    - shelf   
+
+notify_door_opened:
+  module: switcher
+  class: Switcher
+  switch_id: switch.notify_door_opened
+  switch_name: Открытие дверей 
+  dependencies:
+    - shelf 
+
+notify_window_opened:
+  module: switcher
+  class: Switcher
+  switch_id: switch.notify_window_opened
+  switch_name: Открытие окон 
+  dependencies:
+    - shelf 
+
+notify_movement_detected:
+  module: switcher
+  class: Switcher
+  switch_id: switch.notify_movement_detected
+  switch_name: Обнаружено движение 
+  dependencies:
+    - shelf 
+
+notify_person_tracking:
+  module: switcher
+  class: Switcher
+  switch_id: switch.notify_person_tracking
+  switch_name: Приход и уход людей 
+  dependencies:
+    - shelf 
+
+
+shelf:
+  module: shelf
+  class: Shelf

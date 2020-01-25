@@ -5,6 +5,12 @@ messages:
   module: messages
   class: Messenger
   chat_id: !secret appdaemon_messenger_chatid
+  categories:
+    switch.notify_humidifier:
+      name: Уровень воды в увлажнителе
+    switch.notify_logerrors:
+      name: Ошибки в логе
+      
 
 errors:
   module: errors
