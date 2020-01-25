@@ -43,7 +43,7 @@ class YandexWeather(Hass):
             else:
                 nowcast = ''
             self.set_state("sensor.yandex_weather_nowcast_alert", state = "{}".format(nowcast), attributes = {"friendly_name": "Yandex Nowcast"})
-            self.log("done parsing yandex weather ({})".format(actual_temp))
+            #self.log("done parsing yandex weather ({})".format(actual_temp))
             self.errors.reset()
 
         except ConnectionError:

@@ -32,8 +32,6 @@ class NeoSonos(hass.Hass):
 
     def snapshot(self):
         self._snapshot = True
-        self.log('set snapshot to true')
-        self.log('SNAPSHOT SPEAKER STATE!')
         self.call_service(
             'sonos/snapshot',
             entity_id=self.entity,
@@ -42,7 +40,6 @@ class NeoSonos(hass.Hass):
     def restore(self):
         if self._snapshot:
             self._snapshot = False
-            self.log('RESTORE SPEAKER STATE')
             self.call_service(
                 'sonos/restore',
                 entity_id=self.entity,
@@ -78,6 +75,8 @@ class NeoSonos(hass.Hass):
         
         self.snapshot()
         self.volume = volume
+        path = self.opener_file_base + opener
+        self.log(f'{path}')
         self.play_file(self.opener_file_base + opener)
         self.run_in(
             self._speak_cb,
@@ -85,6 +84,4 @@ class NeoSonos(hass.Hass):
             sonos_player=self.entity,
             text=text,
             volume=volume)
-
-        #self.listen_state(self._listen_player_state, self.entity, duration=5, old='playing',  new='paused', oneshot=True)
         

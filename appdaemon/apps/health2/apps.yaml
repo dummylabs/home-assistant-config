@@ -1,0 +1,4 @@
+healthchecksio:
+  class: HealthChecksIO
+  module: healthchecksio
+  url: !secret appdaemon_health_url

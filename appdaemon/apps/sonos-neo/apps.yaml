@@ -4,10 +4,10 @@ neosonos:
   entity: media_player.kitchen
   tts: tts/yandextts_say
   opener_file_base: http://192.168.1.62:8123/local/media/
-  opener: email.mp3
+  opener: e-mail.mp3
   volume: 0.5
   dnd_volume: 0.2
-  opener_delay: 2
+  opener_delay: 1
   dependencies:
     - dnd
 
