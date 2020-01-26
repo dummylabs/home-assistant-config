@@ -1,0 +1,9 @@
+water_outage:
+  module: water_outage
+  class: WaterOutage
+  url: !secret appdaemon_water_outage_url
+  gmail_login: !secret appdaemon_gmail_login
+  gmail_password: !secret appdaemon_gmail_password
+  gmail_to: !secret appdaemon_gmail_to
+  dependencies:
+    - errors
