@@ -15,7 +15,7 @@ class PillReminder(hass.Hass):
         self.run_vitamin_after = self.args['run_vitamin_afer']
         self.tts = self.get_app('neosonos')
         self.messenger = self.get_app('messages')
-        self.listen_state(self.on_coffee, 'binary_sensor.coffee_maker')
+        #self.listen_state(self.on_coffee, 'binary_sensor.coffee_maker')
         self.listen_event(self.disarm, 'xiaomi_aqara.click', entity_id = 'binary_sensor.switch_pill_confirmed', click_type = "single")
         self.pill_handle = None
         self.vitamin_handle = None
@@ -24,9 +24,9 @@ class PillReminder(hass.Hass):
         self.listen_event(self.on_test2, "TEST2")
         self.listen_event(self.on_test, "coffee_maker.start")
 
-    def speak(self, text):
+    def speak(self, text):                       
         if not SILENT:
-            self.tts.speak(text)
+            self.tts.speak(text,volume=0.3)
 
     def on_coffee_started(self):
         if not self.pill_handle and self.is_armed(TRIGGER1):

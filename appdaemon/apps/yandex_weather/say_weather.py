@@ -18,7 +18,7 @@ class SayWeather(hass.Hass):
         self.listen_state(self.say_entrance_opened, 'binary_sensor.entrance')
 
     def say_weather(self, event_name, data, kwargs):
-        self.log('Click type=' + data["click_type"])
+        #self.log('Click type=' + data["click_type"])
         actual_temp = self.get_state("sensor.yandex_weather_temperature")
         apparent_temp = self.get_state("sensor.yandex_weather_apparent_temperature")
         nowcast = self.get_state("sensor.yandex_weather_nowcast_alert")

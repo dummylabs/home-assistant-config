@@ -30,4 +30,4 @@ class LogWatch(hass.Hass):
                             err_count += 1
         self.set_state("sensor.log_errors", state = err_count, attributes = {"friendly_name": "Errors in log", "unit_of_measurement": 'errors'})
         if err_count > MAX_ERRORS:
-            self.messenger.alert(f'Too many errors in home_assistant.log: {err_count}')
+            self.messenger.alert(f'Too many errors in home_assistant.log: {err_count}', category='notify_log_errors')

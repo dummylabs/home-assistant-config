@@ -52,7 +52,18 @@ cards:
           left: 35%
           background-color: "rgba(0, 0, 0, 0.3)"
 
+     
 
+      - type: state-icon
+        entity: binary_sensor.window_blackroom
+        style:
+          --iron-icon-stroke-color: "#969696"
+          border-radius: 50%
+          text-align: center
+          top: 13%
+          left: 13%
+          #--iron-icon-fill-color: white
+          background-color: "rgba(0, 0, 0, 0.3)"
 
       - type: state-icon
         entity: media_player.lgtv
@@ -145,6 +156,17 @@ cards:
           left: 72%
           background-color: "rgba(0, 0, 0, 0.3)"
 
+      - type: state-icon
+        entity: binary_sensor.window_egor
+        style:
+          --iron-icon-stroke-color: "#969696"
+          border-radius: 50%
+          text-align: center
+          top: 20%
+          left: 81%
+          #--iron-icon-fill-color: white
+          background-color: "rgba(0, 0, 0, 0.3)"
+
 
       - type: state-icon
         entity: switch.shelly_4
@@ -179,6 +201,7 @@ cards:
           border-radius: 50%
           text-align: center
           background-color: "rgba(0, 0, 0, 0.3)"
+
       - type: state-icon
         entity: binary_sensor.motion_masha
         icon: 'mdi:run'
@@ -190,6 +213,18 @@ cards:
           border-radius: 50%
           text-align: center
           background-color: "rgba(0, 0, 0, 0.3)"
+
+      - type: state-icon
+        entity: binary_sensor.window_masha
+        style:
+          --iron-icon-stroke-color: "#969696"
+          border-radius: 50%
+          text-align: center
+          top: 49%
+          left: 93%
+          #--iron-icon-fill-color: white
+          background-color: "rgba(0, 0, 0, 0.3)"
+
       - type: state-label
         entity: sensor.senseair_co2_value
         style:
@@ -225,6 +260,17 @@ cards:
           text-align: center
           background-color: "rgba(0, 0, 0, 0.3)"
           color: white
+
+      - type: state-icon
+        entity: binary_sensor.window_masha
+        style:
+          #--iron-icon-stroke-color: "#969696"
+          border-radius: 50%
+          text-align: center
+          top: 80%
+          left: 94%
+          #--iron-icon-fill-color: white
+          background-color: "rgba(0, 0, 0, 0.3)"
 
 ### corridor
       - type: state-icon

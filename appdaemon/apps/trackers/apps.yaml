@@ -1,0 +1,3 @@
+track_persons:
+  module: track_persons
+  class: TrackPersons

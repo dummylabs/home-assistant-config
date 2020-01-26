@@ -5,6 +5,8 @@ import datetime
 
 class TestApp(hass.Hass):
   def initialize(self):
+    msg = self.get_app('messages')
+    #msg.message('Проверка связи', category='notify_person_tracking')
     s = self.get_state('binary_sensor.entrance', attribute = 'last_changed')
     self.log(s)
     t = datetime.datetime.fromisoformat(s)
