@@ -1,0 +1,3 @@
+morning:
+    class: Morning
+    module: morning

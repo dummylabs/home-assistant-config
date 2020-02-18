@@ -41,6 +41,9 @@ class PillReminder(hass.Hass):
     def on_test2(self, event_name, data, kwargs):
         self.disarm('TEST2', [], {})
 
+    def fire_morning_event(self, kwargs):
+        self.fire_event('AD.good_morning')
+
     def disarm(self, event_name, data, kwargs):
         if self.pill_handle:                     
             self.cancel_timer(self.pill_handle)
@@ -52,7 +55,9 @@ class PillReminder(hass.Hass):
             self.turn_off(TRIGGER1)
             start_date = self.datetime() + datetime.timedelta(seconds=self.run_vitamin_after)
             self.log(f'Pill reminder disarmed, vitamin reminder armed for {start_date}')
-            self.speak('Спасибо, таблетка учтена')
+            self.speak('Таблетка учтена')
+            self.run_in(self.fire_morning_event, 5)
+            
             self.vitamin_handle = self.run_every(self.reminder, start_date, self.repeat_every)
         elif self.is_armed(TRIGGER2):
             self.turn_off(TRIGGER2)

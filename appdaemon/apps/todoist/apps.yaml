@@ -1,0 +1,4 @@
+todoist:
+  module: todoist_app
+  class: Todoist
+  token: !secret appdaemon_todoist_token
