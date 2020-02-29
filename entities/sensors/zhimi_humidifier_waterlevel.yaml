@@ -4,5 +4,10 @@ sensors:
     friendly_name: Уровень воды
     unit_of_measurement: '%'
     entity_id: fan.zhimi_humidifier_ca1
-    value_template: "{{ [state_attr('fan.zhimi_humidifier_ca1', 'depth') / 1.2, 100] | min | int }}"
+    value_template: >- 
+      {%- if state_attr('fan.zhimi_humidifier_ca1', 'depth') != None %}
+        {{ [state_attr('fan.zhimi_humidifier_ca1', 'depth') / 1.2, 100] | min | int }}
+      {% else %}
+        {{None}}
+      {%- endif %}
     icon_template: "mdi:cup"
