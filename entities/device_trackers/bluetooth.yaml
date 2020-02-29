@@ -1,0 +1,5 @@
+platform: mqtt
+devices:
+  egor_phone: 'presence/hass1/egor_phone/device_tracker'
+source_type: bluetooth
+
