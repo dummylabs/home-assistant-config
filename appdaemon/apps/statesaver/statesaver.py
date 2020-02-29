@@ -24,6 +24,14 @@ class StateSaver(hass.Hass):
         if serialize:
             globals.set_value(self.path, entity_id, date)
 
+    def seconds_since_changed(self, entity_id):
+        entity_name = f"{entity_id}_last_changed"
+        date = globals.get_value(self.path, entity_id)
+        if date:
+            return int((self.datetime()-date).total_seconds())
+        else:
+            return None
+
     def state_handler(self, entity, attribute, old, new, kwargs):
         if entity in self.args['entities'] and old != new:
             self.update_entity(entity, datetime.datetime.now())
