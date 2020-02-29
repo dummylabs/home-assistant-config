@@ -11,6 +11,10 @@ cards:
         secondary_info: last-changed
       - entity: person.vika
         secondary_info: last-changed
+      - entity: person.egor
+        secondary_info: last-changed
+      - entity:  sensor.presence_status
+        secondary_info: last-changed
       - entity: input_boolean.mode_do_not_disturb
       - entity: sensor.magicair_co2
       - entity: sensor.senseair_co2_value
@@ -18,3 +22,4 @@ cards:
       - entity: sensor.tion_breezer_3s_1_speed
       - entity: switch.nesthub_internet
       - entity: switch.lgtv_internet
+
