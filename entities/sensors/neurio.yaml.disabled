@@ -1,3 +1,0 @@
-platform: neurio_energy
-api_key: !secret neurio_api_key
-api_secret: !secret neurio_api_secret
