@@ -1,0 +1,23 @@
+
+import appdaemon.plugins.hass.hassapi as hass
+import requests
+import globals
+import aiohttp
+
+class HealthChecksIO(hass.Hass):
+    async def initialize(self):
+        self.url = self.args['url']
+        #requests.Session().mount('https://', requests.adapters.HTTPAdapter(max_retries=3))
+        await self.run_every(self.new_check, self.datetime(), 3 *60)
+        self.log('completed')
+        #self.new_check({})
+
+    def my_check(self, kwargs):
+        requests.get(self.url, timeout=5)
+
+    async def new_check(self, kwargs):
+        self.log(f'started request:{self.url}')
+        async with aiohttp.ClientSession() as session:
+            async with session.get(self.url) as resp:
+                self.log(resp.status)
+
