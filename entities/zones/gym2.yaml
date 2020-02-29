@@ -1,0 +1,5 @@
+name: Gym2
+latitude: !secret zone_gym2_latitude 
+longitude: !secret zone_gym2_longitude
+radius: 30
+icon: mdi:dumbbell

@@ -1,4 +1,4 @@
-name: Work
+name: Gym
 latitude: !secret zone_gym_latitude
 longitude: !secret zone_gym_longitude
 radius: 30
