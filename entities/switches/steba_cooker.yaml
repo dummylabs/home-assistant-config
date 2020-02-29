@@ -1,0 +1,5 @@
+platform: broadlink
+host: !secret steba_cooker_ip
+mac: !secret steba_cooker_mac
+type: 'sp3'
+friendly_name: 'Скороварка'
