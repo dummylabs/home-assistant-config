@@ -19,7 +19,9 @@ class Humidifier(hass.Hass):
 
 
     def state_handler(self, entity, attribute, old, new, kwargs):
-        level = int(new)
-        #self.log(f'Humidifier level: ({level})')
+        try:
+            level = int(new)
+        except:
+            return
         if not(level % 5) and level<31:
             self.messenger.bell(f'Низкий уровень воды в увлажнителе: {level}')
