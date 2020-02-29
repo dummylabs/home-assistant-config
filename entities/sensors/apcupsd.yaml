@@ -1,0 +1,20 @@
+platform: apcupsd
+resources:
+  - apc
+  - date
+  -  upsmode  
+  -  starttime
+  -  status
+  -  linev    
+  -  loadpct  
+  -  bcharge  
+  -  timeleft 
+  -  mbattchg 
+  -  mintimel 
+  -  maxtime  
+  -  sense    
+  -  lotrans  
+  -  hitrans  
+  -  alarmdel 
+  -  battv    
+  -  lastxfer 
