@@ -1,0 +1,12 @@
+influxdb:
+  username: !secret influx_user
+  password: !secret influx_password
+  max_retries: 3
+  default_measurement: state
+  include:
+    entities:
+      - sensor.magicair_temperature
+      - sensor.temperature_egor
+      - sensor.temperature_kitchen
+      - sensor.gismeteo_temperature
+      - sensor.temperature_masha
