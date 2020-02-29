@@ -1,6 +1,5 @@
 ---
 name: Egor
 id: egor
-#user_id: !secret user_id_vika
-#device_trackers:
-#  - device_tracker.iphone_frenck
+device_trackers:
+  - device_tracker.egor_phone
