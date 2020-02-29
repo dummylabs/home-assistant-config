@@ -1,0 +1,4 @@
+platform: neurio_energy
+api_key: !secret neurio_api_key
+api_secret: !secret neurio_api_secret
+sensor_id: "0x0000C47F51019A9F"
