@@ -11,8 +11,12 @@ class CoffeeMaker(hass.Hass):
         self.event_fired = False
 
     def state_handler(self, entity, attribute, old, new, kwargs):
+        if old == 'unavailable' or new == 'unavailable':
+            return 
+            
         old = float(old)
         new = float(new)
+            
         duration = (self.datetime()-self.start_time).total_seconds() if self.start_time else 0
 
         if old < treshold and new >= treshold:
