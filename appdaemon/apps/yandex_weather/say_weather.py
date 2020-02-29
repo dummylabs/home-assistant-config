@@ -32,18 +32,18 @@ class SayWeather(hass.Hass):
         self.log('Text spoken')
  
     def delayed_announce(self, kwargs):
+        state = self.get_state('binary_sensor.entrance')
+        self.log(f'{state=}')
+        if state != 'on':
+            self.messenger.message('False positive, door not open')
+            return 
         message = 'Входная дверь открыта!'
         if self.get_state('input_select.dima_status_dropdown') == 'just arrived':
             message = 'Ваш папа пришёл!'
         self.tts.speak(message)
-        for person in ['device_tracker.phone_dima', 'device_tracker.phone_vika']:
-            if self.get_state(person) == 'home':
-                return
-        #self.messenger.message(message)
-        #self.tts.speak('Входная дверь открыта!')
+        self.messenger.message('Входная дверь открыта!', category='notify_door_opened')
 
     def say_entrance_opened(self, entity, attribute, old, new, kwargs):
-
         if self.handle:
             self.cancel_timer(self.handle) 
         if old == 'off' and new == 'on':
