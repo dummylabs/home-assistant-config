@@ -19,7 +19,7 @@ class PillReminder(hass.Hass):
         self.listen_event(self.disarm, 'xiaomi_aqara.click', entity_id = 'binary_sensor.switch_pill_confirmed', click_type = "single")
         self.pill_handle = None
         self.vitamin_handle = None
-        self.run_once(self.arm, datetime.time(7, 25, 0))
+        self.run_daily(self.arm, "7:25:00")
         self.listen_event(self.on_test, "TEST")
         self.listen_event(self.on_test2, "TEST2")
         self.listen_event(self.on_test, "coffee_maker.start")
