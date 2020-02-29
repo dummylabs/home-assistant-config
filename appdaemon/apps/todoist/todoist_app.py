@@ -35,12 +35,12 @@ class Todoist(Hass):
         labels = {l['name']:l['id'] for l in api.state['labels']}
         tomorrow = datetime.utcnow() + timedelta(days=1)
         today = datetime.utcnow()
-        allitems = list(filter(lambda x: x['due'] != None and x['checked'] == 0,  api.state['items']))
+        allitems = list(filter(lambda x: x['due'] != None and x['date_completed'] is None,  api.state['items']))
         due = list(filter(lambda x: parse(x['due']['date']).replace(tzinfo=None).date() < today.date(), allitems))
         today = list(filter(lambda x: parse(x['due']['date']).replace(tzinfo=None).date() == today.date(), allitems))
         bills = list(filter(lambda x: labels['bills'] in x['labels'], today+due))
-        weekend = list(filter(lambda x: x['project_id'] == weekend_project_id, api.state['items']))
-        evening = list(filter(lambda x: x['project_id'] == evening_project_id, api.state['items']))
+        weekend = list(filter(lambda x: x['project_id'] == weekend_project_id and x['date_completed'] is None, api.state['items']))
+        evening = list(filter(lambda x: x['project_id'] == evening_project_id and x['date_completed'] is None, api.state['items']))
 
         evening_count = len(evening)
         today_count = len(today)
