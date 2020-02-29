@@ -1,0 +1,12 @@
+platform: template
+sensors:
+  power_steba_cooker:
+    value_template: >-
+      {% if not state_attr('switch.skorovarka', 'current_power_w') %}
+        {{ 0 | float }}
+      {% else %}
+        {{state_attr('switch.skorovarka', 'current_power_w')|float}}
+      {% endif %}
+    friendly_name: 'Мощность скороварка'
+    device_class: power
+    unit_of_measurement: 'Вт'
