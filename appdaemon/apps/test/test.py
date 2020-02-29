@@ -1,18 +1,19 @@
 import appdaemon.plugins.hass.hassapi as hass
-import errors
-import os
 import datetime
 
-class TestApp(hass.Hass):
-  def initialize(self):
-    msg = self.get_app('messages')
-    #msg.message('Проверка связи', category='notify_person_tracking')
-    s = self.get_state('binary_sensor.entrance', attribute = 'last_changed')
-    self.log(s)
-    t = datetime.datetime.fromisoformat(s)
-    t2 = t - datetime.timedelta(hours = 1)
-    self.log(t2.isoformat())
-    #self.set_state('binary_sensor.entrance', attributes={'last_changed':t2.isoformat()})
+sensor_id = 'sensor.test_run_once'
 
-  def input_handler(self, entity, attribute, old, new, kwargs):
-    self.log(entity)
+class TestApp(hass.Hass):
+    def initialize(self):
+        for t in range(96):
+            self.run_at(self.test, datetime.time(int(t/4), t%4 * 15, 0))
+
+    def test(self, kwargs):
+        try:
+            num = int(self.get_state(sensor_id))
+            num += 1
+        except:
+            num = 0
+        self.set_state(sensor_id, state=num, attributes = {"unit_of_measurement": '°C'})
+        self.log(f'Test fired {num}')
+            
