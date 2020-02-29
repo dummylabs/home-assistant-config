@@ -14,7 +14,7 @@ class Messenger(hass.Hass):
             return True
         if not category.startswith('switch.'):
             category = 'switch.'+category
-        assert (category in self.categories)
+        #assert (category in self.categories)
         return self.get_state(category) == 'on'
 
     def alert(self, msg, category=None):
