@@ -203,6 +203,18 @@ cards:
           background-color: "rgba(0, 0, 0, 0.3)"
 
       - type: state-icon
+        entity: light.bedlight_masha
+        style:
+          top: 37%
+          left: 85%
+          --iron-icon-stroke-color: "#969696"
+          border-radius: 50%
+          text-align: center
+          background-color: "rgba(0, 0, 0, 0.3)"
+
+
+
+      - type: state-icon
         entity: binary_sensor.motion_masha
         icon: 'mdi:run'
         style:
@@ -248,6 +260,19 @@ cards:
           left: 88%
           background-color: "rgba(0, 0, 0, 0.3)"
           color: white
+
+      - type: state-icon
+        entity: switch.skorovarka
+        icon: 'mdi:propane-tank-outline'
+        style:
+          top: 92%
+          left: 86.5%
+          border-radius: 50%
+          text-align: center
+          background-color: "rgba(0, 0, 0, 0.3)"
+          color: white
+
+
       - type: state-icon
         entity: binary_sensor.motion_kitchen
         icon: 'mdi:run'
