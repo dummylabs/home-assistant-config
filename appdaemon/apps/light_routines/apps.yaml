@@ -1,0 +1,3 @@
+masha_bedlight:
+  module: masha_bedlight
+  class: MashaBedlight
