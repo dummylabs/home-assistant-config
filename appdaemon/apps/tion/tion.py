@@ -14,7 +14,7 @@ class Tion(hass.Hass):
   def set_speed(self, speed):
      self.log(f'set speed to {speed}')
      self.call_service("climate/set_fan_mode", entity_id="climate.tion_breezer_3s_1", fan_mode=f"{speed}")
-     self.call_service("tts/yandextts_say", entity_id="media_player.home_hub", message=f'скорость {speed}')
+     self.call_service("tts/yandextts_say", entity_id="media_player.home_hub_max", message=f'скорость {speed}')
 
   def change_speed(self, event_name, data, kwargs):
      self.log(f'{event_name} {data}')
