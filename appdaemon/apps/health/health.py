@@ -1,3 +1,8 @@
+"""
+Sends a telegram alarm when a tracked WiFi device goes offline
+When all tracked devices are offline, sends alert on a WiFi router problem 
+"""
+
 import appdaemon.plugins.hass.hassapi as hass
 import errors
 import datetime

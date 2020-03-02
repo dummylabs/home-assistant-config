@@ -1,3 +1,7 @@
+"""
+Counts the error messages in the HA log for the last hour and sends an alert when
+the it raises above the treshold.
+"""
 import re
 from datetime import datetime
 import appdaemon.plugins.hass.hassapi as hass
@@ -13,7 +17,6 @@ class LogWatch(hass.Hass):
         self.handle = self.run_every(self.check_log, globals.now(), 15*60)
         self.messenger = self.get_app("messages")
         self.chat_id = self.args['chat_id']
-        err_count = 10
 
     def check_log(self, kwargs):
         err_count = 0

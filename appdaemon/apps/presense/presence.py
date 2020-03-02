@@ -1,4 +1,13 @@
-#encoding utf-8
+"""
+A bit sophisticated presence evaluation algorithm.
+For each person it gives "not-so-binary" presence status (inspired by the article linked below)
+https://philhawthorne.com/making-home-assistants-presence-detection-not-so-binary/
+For the whole house it provides a global (composite) state: 
+- everybody_home
+- somebody_home
+- nobody_home
+"""
+
 import appdaemon.plugins.hass.hassapi as hass
 import datetime
 

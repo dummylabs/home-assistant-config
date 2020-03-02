@@ -1,3 +1,6 @@
+"""
+Wishes good morning via a Sonos speaker and gives a briefing on the actual Todoist tasks
+"""
 import appdaemon.plugins.hass.hassapi as hass
 
 class Morning(hass.Hass):

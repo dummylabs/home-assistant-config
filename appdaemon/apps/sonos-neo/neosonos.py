@@ -1,3 +1,7 @@
+"""
+Text-to-speech notifications for Sonos speakers
+"""
+
 import appdaemon.plugins.hass.hassapi as hass
 
 class NeoSonos(hass.Hass):

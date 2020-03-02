@@ -1,3 +1,8 @@
+"""
+Do not disturb mode, affects Sonos speakers (lower the volume)
+Can be triggered either manually or by time / specific events (e.g. kids room door closed)
+"""
+
 import appdaemon.plugins.hass.hassapi as hass
 from datetime import datetime
 import globals

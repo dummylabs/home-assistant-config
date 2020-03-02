@@ -1,3 +1,9 @@
+"""
+Morning medication reminders.
+1) WHen the coffe maker's job had been finished, say about missed medication through the Sonos speaker
+2) When a certain amount of time passed since coffee maker is done, remind about vitamins
+3) Cancel either reminder once a Xiaomi button was pressed
+"""
 import appdaemon.plugins.hass.hassapi as hass
 import datetime
 import globals

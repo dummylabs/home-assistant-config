@@ -1,3 +1,8 @@
+"""
+Saves the state of the specified entities so that it survives during HA reboot
+Gives a human readable last change information (e.g. 5 seconds ago) for every entiry in any language,
+supported by the timeago library (HA currenly supports English only)
+"""
 import appdaemon.plugins.hass.hassapi as hass
 import datetime
 import globals

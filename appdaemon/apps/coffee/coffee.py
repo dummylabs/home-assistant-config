@@ -1,3 +1,8 @@
+"""
+Speech notifications on coffee machine status changes.
+The app also sends an event to trigger other morning routines.
+"""
+
 import appdaemon.plugins.hass.hassapi as hass
 import errors
 
@@ -20,7 +25,6 @@ class CoffeeMaker(hass.Hass):
         duration = (self.datetime()-self.start_time).total_seconds() if self.start_time else 0
 
         if old < treshold and new >= treshold:
-            self.log('Counter started')
             self.event_fired = False
             self.start_time = now = self.datetime()
 

@@ -1,7 +1,10 @@
+"""
+Manages state of the Xiaomi humidifier, sends an alert when it runs out of water.
+"""
+
 import appdaemon.plugins.hass.hassapi as hass
 import datetime
 
-# 
 class Humidifier(hass.Hass):
     def initialize(self):
         self.messenger = self.get_app('messages')

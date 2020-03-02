@@ -1,3 +1,7 @@
+"""
+Manages the night light in the kids room.
+"""
+
 import appdaemon.plugins.hass.hassapi as hass
 import datetime
 
