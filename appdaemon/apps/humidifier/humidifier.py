@@ -8,8 +8,8 @@ import datetime
 class Humidifier(hass.Hass):
     def initialize(self):
         self.messenger = self.get_app('messages')
-        self.run_once(self.switch_on, datetime.time(10, 0, 0))
-        self.run_once(self.switch_off, datetime.time(23, 00, 0))
+        self.run_daily(self.switch_on, datetime.time(10, 0, 0))
+        self.run_daily(self.switch_off, datetime.time(23, 00, 0))
         self.listen_state(self.state_handler, entity='sensor.humidifier_water_level')
         
     def switch_on(self, kwargs):
