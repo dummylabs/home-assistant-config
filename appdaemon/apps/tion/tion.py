@@ -1,3 +1,7 @@
+"""
+An app to manage Tion 3s breeser (recuperator) with a Xiaomi button or by catching an event
+"""
+
 import appdaemon.plugins.hass.hassapi as hass
 import errors
 import os

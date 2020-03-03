@@ -1,4 +1,7 @@
-#inpired by https://stackoverflow.com/questions/24310945/group-items-by-string-pattern-in-python
+"""
+Gather Todoist tasks information and compile a digest message for them
+The tasks can be grouped by various criteria: project, label, overdue status, etc.
+"""
 
 try:
     from appdaemon.plugins.hass.hassapi import Hass

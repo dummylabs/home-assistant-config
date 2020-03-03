@@ -1,4 +1,6 @@
-#encoding utf-8
+"""
+Catch the water outage information from a local utility web page and send email on that
+"""
 import hashlib
 import shelve
 import sys

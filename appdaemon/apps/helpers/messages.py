@@ -1,4 +1,8 @@
-#encoding utf-8
+"""
+A helper class to send notofication via a messenger app.
+For each message a category can be assigned so that these messages can be suppressed by on/off switch
+The category switches are created by the Switcher app 
+"""
 import appdaemon.plugins.hass.hassapi as hass
 
 class Messenger(hass.Hass):

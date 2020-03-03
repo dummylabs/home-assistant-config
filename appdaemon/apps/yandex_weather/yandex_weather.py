@@ -1,4 +1,6 @@
-#encoding utf-8
+"""
+The app to parse weather information from a weather.yandex.ru page and make some sensors in HA  
+"""
 import re,sys
 from requests import ConnectionError
 from bs4 import BeautifulSoup

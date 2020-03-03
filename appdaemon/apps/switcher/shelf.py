@@ -1,3 +1,6 @@
+"""
+An axiliary class to persist any data to disk (e.g. switch state), thread safe
+"""
 import shelve
 import os, glob
 import datetime

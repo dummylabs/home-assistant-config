@@ -1,5 +1,9 @@
+"""
+A class to provide the correct plural form for a part of speech in Russian,
+e.g. "2 огурца", but "5 огурцов"
+The examples of usage can be found in Todoist app
+"""
 import string
-
 # (1, 4, 5)
 # use {plural|...} to skip 1 number and {plural1|...} to keep it, 
 # use {plural0|...} to not display numbers

@@ -1,4 +1,8 @@
-﻿import globals
+"""
+The app to count errors occurred in an app and send a message
+when the number of errors happened in the row exceeds the treshold
+"""
+import globals
 import appdaemon.plugins.hass.hassapi as hass
 from messages import Messenger
 import sys

@@ -1,3 +1,8 @@
+"""
+The app to send a notification when the home presence state of a specified person is changed
+Can be controlled by a notification category switch (messages app).
+"""
+
 import appdaemon.plugins.hass.hassapi as hass
 
 class TrackPersons(hass.Hass):

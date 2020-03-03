@@ -1,4 +1,8 @@
-#encoding utf-8
+"""
+An app to create a fake switch in Home Assistant.
+In contrast to switches from HA config, this one does not require HA restart 
+The state of the switch does not lost after HA restart.
+"""
 import appdaemon.plugins.hass.hassapi as hass
 
 class Switcher(hass.Hass):
@@ -24,9 +28,7 @@ class Switcher(hass.Hass):
         if data['service'] in ['turn_on','turn_off']:
             if self.switch_id == data["service_data"]["entity_id"]:
                 if data["service"] == "turn_off":
-                    #self.log(self.switch_id + " switched off")
                     self.update_state('off')
                 if data["service"] == "turn_on":
-                    #self.log(self.switch_id + " switched on")
                     self.update_state('on')
 

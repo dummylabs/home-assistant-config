@@ -1,3 +1,8 @@
+"""
+HealthCheck.io pinger app.
+Still WIP/disabled as I wanted to learn Python async approach (spoiler: no luck yet)
+Syncronous version works almost fine. 
+"""
 
 import appdaemon.plugins.hass.hassapi as hass
 import requests
